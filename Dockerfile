@@ -9,16 +9,14 @@ ENV SERVER_PORT=80
 WORKDIR /app
 
 # Copy the Spring Boot application JAR file into the container
-# COPY target/your-spring-boot-app.jar /app/app.jar
+COPY HelloWorldApplication.java /app/
+COPY pom.xml /app/
 
-# Copy the Spring Boot application source code and build the JAR
-COPY . /app/
-RUN ./mvnw clean package
+# Compile the Java code to generate the JAR file
+RUN javac HelloWorldApplication.java
 
 # Expose port 80 for Tomcat
 EXPOSE 80
 
 # Define the command to run your Spring Boot application
-CMD ["java", "-jar", "app.jar"]
-
-
+CMD ["java", "HelloWorldApplication"]

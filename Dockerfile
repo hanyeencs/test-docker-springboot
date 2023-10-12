@@ -20,3 +20,6 @@ EXPOSE 80
 
 # Define the command to run your Spring Boot application
 CMD ["java", "HelloWorldApplication"]
+
+RUN echo "dog reached here"
+
